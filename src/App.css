@@ -4,6 +4,13 @@ th {
   color: #264d73;
 }
 
+input {
+  width: 100%;
+  font-size: x-large;
+  padding: 0.2rem;
+  border: 2px ridge rgb(77, 61, 61);
+}
+
 .title {
   text-align: center;
   color: rgb(77, 61, 61);
