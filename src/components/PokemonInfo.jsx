@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from '@emotion/styled';
 
-import PokemonContext from "../PokemonContext";
 import PokemonType from "../PokemonType";
+import { useSelector } from "react-redux";
 
 const PokemonInfo = () => {
   
-  const { state: { selectedPokemon }} = useContext(PokemonContext);
-  const Info = styled.div`color: #18414e; border-top: 4px solid #002984`
+  const Info = styled.div`border-top: 4px solid #002984`;
+
+  const selectedPokemon = useSelector(state => state.selectedPokemon);
 
   return selectedPokemon ? (
     <Info>
