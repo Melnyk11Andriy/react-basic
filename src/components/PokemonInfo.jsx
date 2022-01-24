@@ -2,13 +2,13 @@ import React from "react";
 import styled from '@emotion/styled';
 
 import PokemonType from "../PokemonType";
-import { useSelector } from "react-redux";
+import useStore from "../store";
 
 const PokemonInfo = () => {
   
   const Info = styled.div`border-top: 4px solid #002984`;
 
-  const selectedPokemon = useSelector(state => state.selectedPokemon);
+  const selectedPokemon = useStore(state => state.selectedPokemon);
 
   return selectedPokemon ? (
     <Info>
