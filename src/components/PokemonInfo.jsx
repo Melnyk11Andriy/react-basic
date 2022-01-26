@@ -1,24 +1,23 @@
 import React from "react";
 import styled from '@emotion/styled';
+import { observer } from "mobx-react";
 
-import PokemonType from "../PokemonType";
-import useStore from "../store";
+// import PokemonType from "../PokemonType";
+import store from "../store";
 
 const PokemonInfo = () => {
   
   const Info = styled.div`border-top: 4px solid #002984`;
 
-  const selectedPokemon = useStore(state => state.selectedPokemon);
-
-  return selectedPokemon ? (
+  return store.selectedPokemon ? (
     <Info>
-    <h2>{selectedPokemon.name.english}</h2>
+    <h2>{store.selectedPokemon.name.english}</h2>
     <table>
       <tbody>
-        {Object.keys(selectedPokemon.base).map((key) => (
+        {Object.keys(store.selectedPokemon.base).map((key) => (
           <tr key={key}>
             <td>{key}</td>
-            <td>{selectedPokemon.base[key]}</td>
+            <td>{store.selectedPokemon.base[key]}</td>
           </tr>
         ))}
       </tbody>
@@ -27,6 +26,6 @@ const PokemonInfo = () => {
   ) : null;
 }; 
 
-PokemonInfo.propTypes = PokemonType;
+// PokemonInfo.propTypes = PokemonType;
 
-export default PokemonInfo;
+export default observer(PokemonInfo);

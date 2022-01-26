@@ -6,8 +6,6 @@ import './App.css';
 import PokemonInfo from './components/PokemonInfo';
 import PokemonFilter from './components/PokemonFilter';
 import PokemonTable from './components/PokemonTable';
-import useStore from './store';
-
 
 const Title = styled.h1`
   text-align: center;
@@ -24,19 +22,6 @@ const TwoColumnLayout = styled.div`
 `;
 
 function App() {
-
-  const pokemon = useStore(state => state.pokemon);
-  const setPokemon = useStore(state => state.setPokemon);
-
-  React.useEffect(() => {
-    fetch('/starting-react/pokemon.json')
-      .then((resp) => resp.json())
-      .then(setPokemon);
-  });
-
-  if (!pokemon) {
-    return <div>Loading data</div>;
-  }
 
   return (
       <PageContainer>
